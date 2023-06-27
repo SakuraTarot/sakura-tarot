@@ -1,9 +1,12 @@
 
 import './App.css';
+import Intro from './pages/Intro.jsx';
 
 function App() {
   return (
-    <h1>SAKURA TAROT</h1>
+   <div>
+    <Intro />
+   </div>
 
   );
 }

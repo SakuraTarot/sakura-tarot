@@ -1,14 +1,14 @@
+import React from 'react';
+import CardList from './Cards/Cards';
 
-import './App.css';
 import Intro from './pages/Intro.jsx';
 
-function App() {
+const App = () => {
   return (
-   <div>
-    <Intro />
-   </div>
-
+    
+      <CardList />
+    
   );
-}
+};
 
 export default App;

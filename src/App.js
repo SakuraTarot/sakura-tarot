@@ -1,11 +1,13 @@
+import React from 'react';
+import CardList from './Cards/Cards';
 
-import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <h1>SAKURA TAROT</h1>
-
+    
+      <CardList />
+    
   );
-}
+};
 
 export default App;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter} from 'react-router-dom';
+import { Navigate, createBrowserRouter} from 'react-router-dom';
 import App from '../App.js'
 import '../index.css'
 import Main from '../pages/Main'
@@ -18,4 +18,8 @@ export const Router = createBrowserRouter([
     path:'/Favorites',
     element: <Favorites />
   },
+  {
+    path:'*',
+    element: <Navigate to="/" />
+  }
 ])

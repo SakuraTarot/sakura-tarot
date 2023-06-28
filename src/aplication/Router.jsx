@@ -11,7 +11,7 @@ export const Router = createBrowserRouter([
     element: <App />
   },
   {
-    path:'/Main',
+    path:'Card/:id',
     element: <Main />
   },
   {

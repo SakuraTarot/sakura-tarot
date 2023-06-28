@@ -6,11 +6,11 @@ import Start from '../../assets/favorite.svg';
 
 export default function Header() {
   return (
-    <>
+    
     <nav className='navegation'>
         <Link to="/*" className='back-Intro'><img src={Stellar} alt='Logo'/></Link>
         <Link to="/favotites"><img src={Start}/></Link> 
     </nav>    
-    </>
+ 
   )
 }

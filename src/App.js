@@ -1,5 +1,5 @@
 import React from 'react';
-import Intro from './pages/Intro.jsx';
+import Intro from './pages/Intro/Intro.jsx';
 
 const App = () => {
   return (

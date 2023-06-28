@@ -9,7 +9,7 @@ export default function Header() {
     
     <nav className='navegation'>
         <Link to="/*" className='back-Intro'><img src={Stellar} alt='Logo'/></Link>
-        <Link to="/favotites"><img src={Start}/></Link> 
+        <Link to="/favotites"><img src={Start} alt='star for favorites'/></Link> 
     </nav>    
  
   )

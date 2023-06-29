@@ -7,7 +7,8 @@ const CardList = () => {
   const [selectedCards, setSelectedCards] = useState([]);
   const [hiddenCards, setHiddenCards] = useState([]);
   const [shouldShuffle, setShouldShuffle] = useState(true);
-
+  const [favoriteCards, setFavoriteCards] = useState([]);
+const [isFavoriteClicked, setIsFavoriteClicked] = useState(false);
 
 
 
@@ -53,19 +54,28 @@ const CardList = () => {
         <span>{card.spanishName}</span>
         <span>{card.meaning}</span>
       </div>
+      
     ));
   };
-
+  const mutatedCard = { ...card, isFavorite: false };
+  useEffect(() => {
+    if (isFavoriteClicked) {
+      const favoritesFromLocalStorage = localStorage.getItem('favoriteCards');
+      const parsedFavorites = favoritesFromLocalStorage ? JSON.parse(favoritesFromLocalStorage) : [];
+      const updatedFavorites = [...parsedFavorites, mutatedCard];
+      localStorage.setItem('favoriteCards', JSON.stringify(updatedFavorites));
+    }
+  }, [isFavoriteClicked]);
 
   return (
     <div>
-      <button>favoritess</button>
+      <button onClick={() => setIsFavoriteClicked(true)}>favorites</button>
       <ul className='timeline'>
         <li>Pasado</li>
         <li>Presente</li>
         <li>Futuro</li>
       </ul>
-      <div className='selectedCards'>{renderSelectedCards()}</div>
+      <div key={mutatedCard.id} className='selectedCards'>{renderSelectedCards()}</div>
       <div className="cards">
         {cards.map((card) => (
           <div key={card.id} onClick={() => handleCardClick(card.id)}

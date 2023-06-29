@@ -18,7 +18,7 @@ function AstralReadings() {
       </div>
 
       <Link to="/Main" className="comeback">
-        <img src={Back} className="back" />
+        <img src={Back} className="back" alt="link para volver atras" />
         Back
       </Link>
     </div>

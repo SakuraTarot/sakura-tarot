@@ -9,6 +9,8 @@ const CardList = () => {
   const [shouldShuffle, setShouldShuffle] = useState(true);
   
 
+
+
   useEffect(() => {
     const fetchData = async () => {
       const filteredCards = await fetchFilteredCards();
@@ -54,7 +56,7 @@ const CardList = () => {
       
     ));
   };
-  
+
   return (
     <div>
       

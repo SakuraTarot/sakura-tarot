@@ -1,8 +1,13 @@
 import React from 'react';
-import Button from "../../components/button/Button";
+import MainIntro from "../../components/MainIntro/MainIntro"
+import "./Intro.css";
 
 export default function Intro() {
   return (
-      <Button />
+    <>
+      <div className="intro">
+      <MainIntro />
+      </div>
+    </>
   )
 }

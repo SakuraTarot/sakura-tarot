@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { fetchFilteredCards } from './ApiGetArray';
-import './Cards.css';
+import Card from './Cards.css';
 
 const CardList = () => {
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [hiddenCards, setHiddenCards] = useState([]);
   const [shouldShuffle, setShouldShuffle] = useState(true);
-  const [favoriteCards, setFavoriteCards] = useState([]);
-const [isFavoriteClicked, setIsFavoriteClicked] = useState(false);
-
-
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,25 +54,16 @@ const [isFavoriteClicked, setIsFavoriteClicked] = useState(false);
       
     ));
   };
-  const mutatedCard = { ...card, isFavorite: false };
-  useEffect(() => {
-    if (isFavoriteClicked) {
-      const favoritesFromLocalStorage = localStorage.getItem('favoriteCards');
-      const parsedFavorites = favoritesFromLocalStorage ? JSON.parse(favoritesFromLocalStorage) : [];
-      const updatedFavorites = [...parsedFavorites, mutatedCard];
-      localStorage.setItem('favoriteCards', JSON.stringify(updatedFavorites));
-    }
-  }, [isFavoriteClicked]);
-
+  
   return (
     <div>
-      <button onClick={() => setIsFavoriteClicked(true)}>favorites</button>
+      
       <ul className='timeline'>
         <li>Pasado</li>
         <li>Presente</li>
         <li>Futuro</li>
       </ul>
-      <div key={mutatedCard.id} className='selectedCards'>{renderSelectedCards()}</div>
+      <div key={Card.id} className='selectedCards'>{renderSelectedCards()}</div>
       <div className="cards">
         {cards.map((card) => (
           <div key={card.id} onClick={() => handleCardClick(card.id)}

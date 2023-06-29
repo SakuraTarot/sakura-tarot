@@ -1,5 +1,6 @@
 import Stellar from '../../assets/Stellar Journey.svg';
 import Hands from '../../assets/hands-image.svg'
+import Button from '../button/Button';
 import './MainIntro.css'
 
 export default function MainIntro() {
@@ -17,6 +18,7 @@ export default function MainIntro() {
                 <p>The card to the right represents the future.</p>
                 <p>Click the button below to choose your cards!</p>
             </div>
+            <Button/>
         </section>
     )
 

@@ -13,11 +13,9 @@ export default function MainIntro() {
             </div>
             <div className="text">
                 <h1>Clow Tarot</h1>
-                <p>Esta es una lectura de tres cartas:</p>
-                <p>The left card represents events in your past.</p>
-                <p>The one in the center represents the present.</p>
-                <p>The card to the right represents the future.</p>
-                <p>Click the button below to choose your cards!</p>
+                <p className='texto1'>Bienvenidos a nuestro reino astral, donde el pasado, el presente y el futuro 
+                    se unen en una danza cósmica llena de significado y posibilidades.
+                    ¡Prepárense para un viaje asombroso hacia la profundidad de sus almas y el conocimiento de su propio ser!</p>
             </div>
             <Button/>
         </section>

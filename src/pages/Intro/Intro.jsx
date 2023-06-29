@@ -1,10 +1,15 @@
 import React from 'react';
-import Header from "../../components/Header/Header";
+import MainIntro from "../../components/MainIntro/MainIntro"
+import Button from "../../components/button/Button";
+import "./Intro.css";
 
 export default function Intro() {
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <div className="intro">
+      <MainIntro />
+      <Button />
+      </div>
+    </>
   )
 }

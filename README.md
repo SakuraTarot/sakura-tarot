@@ -44,9 +44,15 @@ To start the proyect, write in the terminal.
 
 - Atomic Design
 - Responsive design  (Html - Css)
-- React v.18
-- React-router-dom v.6
-- Fetch-API
+- Pseudoclases  (Css)
+- Box Model (Html - Css)
+- Events and event Handler (Javascript)
+- Funciones (Javascript)
+- DOM (Javascript - HTML)
+- React (hooks)
+- React-router-dom
+- Json-server
+- React Testing Library
 
 ---
 

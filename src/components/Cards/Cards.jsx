@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchFilteredCards } from './ApiGetArray';
-import Card from './Cards.css';
+
 
 
 const CardList = () => {

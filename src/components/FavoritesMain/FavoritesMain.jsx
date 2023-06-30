@@ -1,27 +1,17 @@
-import { useEffect, useState } from 'react';
 
-const FavoritesMain = () => {
-  const [favoriteCards, setFavoriteCards] = useState([]);
-
-  useEffect(() => {
-    const favoritesFromLocalStorage = localStorage.getItem('favoriteCards');
-    const parsedFavorites = favoritesFromLocalStorage ? JSON.parse(favoritesFromLocalStorage) : [];
-    // Aquí puedes realizar la mutación adicional de los datos según tus necesidades
-    setFavoriteCards(parsedFavorites);
-  }, []);
-
+export default function FavoritesMain() {
+  const favorites = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = `selectedCards${i}`;
+    const value = localStorage.getItem(key);
+    const card = JSON.parse(value);
+    const pass = [card[0].spanishName, card[0].meaning];
+    const present = [card[1].spanishName, card[1].meaning];
+    const future = [card[2].spanishName, card[2].meaning];
+  
+    favorites.push(pass, present, future);
+  }
   return (
-    <div>
-      {/* Renderiza los datos mutados en la página "favoritesmain" */}
-      {favoriteCards.map((card) => (
-        <div key={card.id} className='favoriteCard'>
-          <img src={card.clowCard} alt={card.name} className="openedCard" />
-          <span>{card.spanishName}</span>
-          <span>{card.meaning}</span>
-        </div>
-      ))}
-    </div>
+    {favorites}
   );
-};
-
-export default FavoritesMain;
+}

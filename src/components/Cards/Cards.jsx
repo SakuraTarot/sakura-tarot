@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchFilteredCards } from './ApiGetArray';
+import { fetchFilteredCards } from './scripts/ApiGetArray';
 import './Cards.css';
 
 
@@ -10,6 +10,7 @@ const CardList = () => {
   const [shouldShuffle, setShouldShuffle] = useState(true);
   const [isButtonsBoxDisplayed, setIsButtonsBoxDisplayed] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isPDisplayed, setIsPDisplayed] = useState(false);
 
 
   useEffect(() => {
@@ -47,7 +48,8 @@ const CardList = () => {
       const updatedSelectedCards = [...prevSelectedCards, selectedCard];
       setHiddenCards((prevHiddenCards) => [...prevHiddenCards, cardId]);
       setIsButtonsBoxDisplayed(updatedSelectedCards.length === 3);
-            
+      setIsPDisplayed(updatedSelectedCards.length !== 0);
+
       sessionStorage.setItem('selectedCards', JSON.stringify(updatedSelectedCards));
 
 
@@ -61,7 +63,7 @@ const renderSelectedCards = () => {
     return selectedCards.map((card) => (
       <div key={card.id} className='selectedCard'>
         <img src={card.clowCard} alt={card.name} className="openedCard" />
-        <span>{card.spanishName}</span>
+        <span className='cardName'> {card.spanishName}</span>
         <span>{card.meaning}</span>
       </div>
     ));
@@ -77,18 +79,32 @@ window.onload = () => {
 };
   
   function saveData() {
-  const selectedCardsKey = `selectedCards_${localStorage.length}`;
+  const selectedCardsKey = `selectedCards_${localStorage.length / 2}`;
   const value = sessionStorage.getItem('selectedCards');
   
     setIsButtonDisabled(true);
+    
+    const today = new Date();  
+    const year = today.getFullYear(); 
+    const month = today.getMonth() + 1;  
+    const day = today.getDate();  
+
+    const dateFormat = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
+
+    const DateKey = `Date_${localStorage.length / 2}`;
+    localStorage.setItem(DateKey, dateFormat);
+
 
   localStorage.setItem(selectedCardsKey, value);
-  sessionStorage.removeItem('selectedCards');
+    sessionStorage.removeItem('selectedCards');
+    
 }
   
   return (
+    
     <div>
       <div className='selectedCards'>{renderSelectedCards()}</div>
+      <p className={isPDisplayed ? 'displayNone' : 'textAfterBox'}>Elige 3 cartas del mazo</p>
       <div className={isButtonsBoxDisplayed ? 'buttonsBox display' : 'buttonsBox'}>
         <button className='buttonSave' onClick={saveData} disabled={isButtonDisabled}>Guardar</button>
         <button className='buttonRestart' onClick={handlePageRefresh}>Reiniciar</button>

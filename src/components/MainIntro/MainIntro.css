@@ -35,3 +35,9 @@
 .texto1{
     margin-top: 0;
 }
+
+@media (max-width: 390px) {
+    .text{
+        width: 17rem;
+    }
+  }

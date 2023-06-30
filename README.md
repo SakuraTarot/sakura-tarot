@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Project Name: Sakura-Tarot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Stellar Journey
 
-In the project directory, you can run:
+The project consists of an application that consumes the Sakura API that returns a JSON file with the information of the cards, clow card.
 
-### `npm start`
+The user will be able to choose a card for the past, another for the present and another for the future, then he will be able to obtain the meaning of each card he has chosen.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- To get all the cards : https://6388b6e5a4bb27a7f78f96a5.mockapi.io/sakura-cards/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. [Facility](#facility)
+2. [Mockup](#mockup)
+3. [Topics](#topics)
+4. [Technologies](#technologies)
+5. [Tools](#tools)
+6. [Developers](#developers)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Facility:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To install the project, you must clone the repository with the following link:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To start the proyect, write in the terminal.
+- npm i
+### To see the proyect:
+- npm test
+#### To run the tests:
+- npm test
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Mockup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Topics
 
-## Learn More
+- Atomic Design
+- Responsive design  (Html - Css)
+- React v.18
+- React-router-dom v.6
+- Fetch-API
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies
+ <div>
+ <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg" alt="react logo" margin="0" width="80" height="40"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript logo" width="40" height="40"/> 
+ <div>      
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Tools
 
-### Analyzing the Bundle Size
+<div>
+<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/>
+<img src="https://w7.pngwing.com/pngs/512/824/png-transparent-visual-studio-code-hd-logo-thumbnail.png" alt="vscode" width="40" heigth="40"/>
+<img src="https://w7.pngwing.com/pngs/115/721/png-transparent-trello-social-icons-icon.png" alt="trello" width="40" heigth="40"/>
+<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
+<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github" width="40" heigth="40"/> </div>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Developers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+       Teresa Villa.
+       Genesis Nuñez.
+       Denise Khurlopian.
+       Rosa Rubio.
+       Yana Tolstobrova.

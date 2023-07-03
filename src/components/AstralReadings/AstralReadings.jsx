@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Astral.css";
 import Cart from "../../assets/cartas-favotires.svg";
 import Back from "../../assets/back.svg";
+import Comments from "../Comments/Comments";
 
 function AstralReadings() {
   return (
@@ -14,7 +15,7 @@ function AstralReadings() {
       />
 
       <div className="store-readings">
-        <div className="predictions">pp</div>
+        <div className="predictions"> <Comments/></div>
       </div>
 
       <Link to="/Main" className="comeback">

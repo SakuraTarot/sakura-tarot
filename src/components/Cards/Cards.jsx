@@ -11,6 +11,8 @@ const CardList = () => {
   const [isButtonsBoxDisplayed, setIsButtonsBoxDisplayed] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isPDisplayed, setIsPDisplayed] = useState(false);
+  const [ShowPopup, setShowPopup] = useState(false);
+  const [comment, setComment] = useState('');
 
 
   useEffect(() => {
@@ -69,6 +71,14 @@ const renderSelectedCards = () => {
     ));
   };
 
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
 const handlePageRefresh = () => {
   window.location.reload();
   sessionStorage.clear();
@@ -81,6 +91,12 @@ window.onload = () => {
   function saveData() {
   const selectedCardsKey = `selectedCards_${localStorage.length / 2}`;
   const value = sessionStorage.getItem('selectedCards');
+
+  if (!comment) {
+    alert('Debes escribir un comentario');
+    return;
+  }
+
   
     setIsButtonDisabled(true);
     
@@ -97,30 +113,49 @@ window.onload = () => {
 
   localStorage.setItem(selectedCardsKey, value);
     sessionStorage.removeItem('selectedCards');
+
+    closePopup();
+    
     
 }
   
-  return (
-    
+return (
+  <div>
+    <div className='selectedCards'>{renderSelectedCards()}</div>
+    <p className={isPDisplayed ? 'displayNone' : 'textAfterBox'}>Elige 3 cartas del mazo</p>
+    <div className={isButtonsBoxDisplayed ? 'buttonsBox display' : 'buttonsBox'}>
+      {/* <button className='buttonSave' onClick={saveData} disabled={isButtonDisabled}>Guardar</button> */}
+      <button className='buttonSave' onClick={openPopup} disabled={isButtonDisabled}>Guardar</button>
+      <button className='buttonRestart' onClick={handlePageRefresh}>Reiniciar</button>
+    </div>
     <div>
-      <div className='selectedCards'>{renderSelectedCards()}</div>
-      <p className={isPDisplayed ? 'displayNone' : 'textAfterBox'}>Elige 3 cartas del mazo</p>
-      <div className={isButtonsBoxDisplayed ? 'buttonsBox display' : 'buttonsBox'}>
-        <button className='buttonSave' onClick={saveData} disabled={isButtonDisabled}>Guardar</button>
-        <button className='buttonRestart' onClick={handlePageRefresh}>Reiniciar</button>
-      </div>
-      <div className="cards">
+      {ShowPopup && (
+        <div className='popup'>
+          <div className='popup-inner'>
+            <h2>Cómo te sientes?</h2>
+            <input 
+              type="text" 
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <div className='popup-buttons'>
+              <button className='buttonSave' onClick={saveData} disabled={isButtonDisabled}>Guardar</button>
+              <button onClick={closePopup}>Salir</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+    <div className="cards">
       {cards.map((card) => (
-        <div key={card.id} onClick={() => handleCardClick(card.id)}
-          className={hiddenCards.includes(card.id) ? "card hidden" : "card"}
->
-              <img src={card.cardsReverse.clowReverse} alt={card.name} className="card" />
+        <div key={card.id} onClick={() => handleCardClick(card.id)} className={hiddenCards.includes(card.id) ? "card hidden" : "card"}>
+          <img src={card.cardsReverse.clowReverse} alt={card.name} className="card" />
         </div>
       ))}
     </div>
-    </div>
-    
-  );
+  </div>
+);
+
 };
 
 export default CardList;

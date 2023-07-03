@@ -91,6 +91,15 @@ img.openedCard{
     font-size: 1.2em;
     margin-top: 2em;
 }
+
+img:hover {
+    transform: scale(1.2);
+}
+
+img.openedCard{
+    transform: none;
+}
+
 @media screen and (max-width:775px){
     .selectedCards, .timeline{
         width: 100%;

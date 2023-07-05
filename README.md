@@ -24,12 +24,14 @@ The user will be able to choose a card for the past, another for the present and
 
 ## Facility:
 
-To install the project, you must clone the repository with the following link:
+To install the project, you must clone the repository with the following link: https://github.com/SakuraTarot/sakura-tarot
 
 To start the proyect, write in the terminal.
 - npm i
+### To get the API:
+- npm install axios
 ### To see the proyect:
-- npm test
+- npm start
 #### To run the tests:
 - npm test
 

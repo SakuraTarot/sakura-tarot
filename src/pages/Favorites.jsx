@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from '../components/Header/Header';
-import AstralReadings from '../components/AstralReadings/AstralReadings';
+import FavoritesCards from '../components/Favorites/FavoritesCards';
+
 
 export default function Favorites() {
   return (
     <div>
       <Header/>
-      <AstralReadings/>
+      <FavoritesCards />
     </div>
   )
 }

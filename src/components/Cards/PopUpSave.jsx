@@ -41,8 +41,8 @@ const CustomButton = styled(Button)`
   &:hover {
     background-color: var(--accent-hover-background);
   }
-
 `;
+
 const CustomTextarea = styled(TextareaAutosize)`
   background-color: var(--accent-color);
   width: 100%;
@@ -55,33 +55,31 @@ const CustomTextarea = styled(TextareaAutosize)`
   }
 `;
 
-export default function TransitionsModal({ selectedCards }) {
+export default function TransitionsModal({ selectedCards, isDataSaved, setIsDataSaved }) {
   const [open, setOpen] = React.useState(false);
   const [textareaValue, setTextareaValue] = React.useState('');
-  const [isDataSaved, setIsDataSaved] = React.useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSave = () => {
     // Perform save logic with the textarea value
-    const today = new Date();  
-    const year = today.getFullYear(); 
-    const month = today.getMonth() + 1;  
-    const day = today.getDate();  
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
 
     const dateFormat = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
-      
+
     const savedData = {
-    date: dateFormat,
-    selectedCards: selectedCards,
-    textareaValue: textareaValue,
-  };
+      date: dateFormat,
+      selectedCards: selectedCards,
+      textareaValue: textareaValue,
+    };
 
-  const SavedKey = `Saved_${localStorage.length}`;
-  localStorage.setItem(SavedKey, JSON.stringify(savedData));
-  setIsDataSaved(true);
-
+    const SavedKey = `Saved_${localStorage.length}`;
+    localStorage.setItem(SavedKey, JSON.stringify(savedData));
+    setIsDataSaved(true);
 
     // Close the modal
     setOpen(false);

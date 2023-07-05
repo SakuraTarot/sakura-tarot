@@ -58,6 +58,7 @@ const CustomTextarea = styled(TextareaAutosize)`
 export default function TransitionsModal({ selectedCards }) {
   const [open, setOpen] = React.useState(false);
   const [textareaValue, setTextareaValue] = React.useState('');
+  const [isDataSaved, setIsDataSaved] = React.useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -79,6 +80,7 @@ export default function TransitionsModal({ selectedCards }) {
 
   const SavedKey = `Saved_${localStorage.length}`;
   localStorage.setItem(SavedKey, JSON.stringify(savedData));
+  setIsDataSaved(true);
 
 
     // Close the modal
@@ -92,7 +94,7 @@ export default function TransitionsModal({ selectedCards }) {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <CustomButton onClick={handleOpen}>Guardar</CustomButton>
+        <CustomButton onClick={handleOpen} disabled={isDataSaved}>Guardar</CustomButton>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"

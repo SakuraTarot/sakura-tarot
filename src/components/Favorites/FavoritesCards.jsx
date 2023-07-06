@@ -4,90 +4,107 @@ import { Link } from "react-router-dom";
 import Cart from "../../assets/cartas-favotires.svg";
 import Back from "../../assets/back.svg";
 import DeleteModal from './PopUpDelete';
+import axios from 'axios';
 
 export default function FavoritesCards() {
   const [savedData, setSavedData] = useState([]);
 
   useEffect(() => {
-    const data = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key.startsWith("Saved_")) {
-        const item = JSON.parse(localStorage.getItem(key));
-        data.push(item);
-      }
-    }
-    setSavedData(data);
+    fetchData();
   }, []);
 
-  const handleDelete = (index) => {
-    const keyToDelete = `Saved_${index}`;
-    localStorage.removeItem(keyToDelete);
-    setSavedData((prevData) => {
-      const newData = [...prevData];
-      newData.splice(index, 1);
-      return newData;
+  function fetchData() {
+  axios.get('http://localhost:3001/sakura-cards')
+    .then(response => {
+      const reversedData = response.data.reverse();
+      setSavedData(reversedData);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error.message);
     });
-  };
+}
+
+
+
+
+  const [editedIndex, setEditedIndex] = useState(-1);
+  const [editedTextareaValue, setEditedTextareaValue] = useState('');
 
   const handleEdit = (index) => {
-    setSavedData((prevData) => {
-      const newData = [...prevData];
-      newData[index].isEditing = true;
-      return newData;
-    });
+    setEditedIndex(index);
+    setEditedTextareaValue(savedData[index].textareaValue);
   };
 
-  const handleSave = (index) => {
-    setSavedData((prevData) => {
-      const newData = [...prevData];
-      newData[index].isEditing = false;
-      localStorage.setItem(`Saved_${index}`, JSON.stringify(newData[index]));
-      return newData;
-    });
+  const handleSaveEdit = (index) => {
+  const updatedData = {
+    ...savedData[index],
+    textareaValue: editedTextareaValue,
   };
 
-  const handleCommentChange = (e, index) => {
-    const value = e.target.value;
-    setSavedData((prevData) => {
-      const newData = [...prevData];
-      newData[index].textareaValue = value;
-      return newData;
+  axios.put(`http://localhost:3001/sakura-cards/${savedData[index].id}`, updatedData)
+    .then(response => {
+      const newData = [...savedData];
+      newData[index] = response.data;
+      setSavedData(newData);
+    })
+    .catch(error => {
+      console.error('Error saving data:', error.message);
     });
-  };
 
-  const divArray = savedData.map((item, index) => (
+  setEditedIndex(-1);
+  setEditedTextareaValue('');
+};
+
+
+  const handleDelete = (index) => {
+  const id = savedData[index].id;
+
+  axios.delete(`http://localhost:3001/sakura-cards/${id}`)
+    .then(() => {
+      setSavedData(prevSavedData => {
+        const newData = [...prevSavedData];
+        newData.splice(index, 1);
+        return newData;
+      });
+    })
+    .catch(error => {
+      console.error('Error deleting data:', error.message);
+    });
+};
+
+
+  const divArray = savedData.map((data, index) => (
     <div key={index} className='savedBox'>
-      <div className='date'>{item.date}<DeleteModal onDelete={() => handleDelete(index)} />
+      <div className='date'>{data.date}<DeleteModal onDelete={() => handleDelete(index)} />
 </div>
-      <div className="line">
-        <strong>Pasado:</strong> {item.selectedCards[0].meaning}
-      </div>
-      <div className="line">
-        <strong>Presente:</strong> {item.selectedCards[1].meaning}
+      <div className='line'>
+        <strong>Pasado:</strong> {data.selectedCards[0].meaning}
       </div>
       <div className='line'>
-        <strong>Futuro:</strong> {item.selectedCards[2].meaning}
+        <strong>Presente:</strong> {data.selectedCards[1].meaning}
+      </div>
+      <div className='line'>
+        <strong>Futuro:</strong> {data.selectedCards[2].meaning}
       </div>
       <div>
         <strong>Comentario:</strong>
-        {item.isEditing ? (
-          <textarea
+        {editedIndex !== index && <div>{data.textareaValue}</div>}
+      {editedIndex === index && (
+        <textarea
+          value={editedTextareaValue}
           className='textArea'
-          type="text"
-          value={item.textareaValue}
-          onChange={(e) => handleCommentChange(e, index)}
+          onChange={(e) => setEditedTextareaValue(e.target.value)}
         ></textarea>
-      ) : (
-        <div>{item.textareaValue}</div>
       )}
-      {item.isEditing ? (
-        <button onClick={() => handleSave(index)} className='buttonEdit'>Guardar</button>
-      ) : (
+      {editedIndex !== index && (
         <button onClick={() => handleEdit(index)} className='buttonEdit'>Editar</button>
       )}
-        </div>
+      {editedIndex === index && (
+        <button onClick={() => handleSaveEdit(index)} className='buttonEdit'>Guardar</button>
+      )}
       </div>
+      
+    </div>
   ));
 
   return (
@@ -97,7 +114,7 @@ export default function FavoritesCards() {
         className="cart-bw"
         alt="Carta que aparece en la parte inferior del navbar"/>
 
-      <div>{divArray.reverse()}</div>
+      <div>{divArray}</div>
 
       <Link to="/Main" className="comeback">
         <img src={Back} className="back" alt="link para volver atras" />

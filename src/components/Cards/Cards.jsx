@@ -24,15 +24,12 @@ const CardList = () => {
 
   useEffect(() => {
     if (shouldShuffle) {
-      const mixedCards = [...cards];
-      for (let i = mixedCards.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [mixedCards[i], mixedCards[j]] = [mixedCards[j], mixedCards[i]];
-      }
+      const mixedCards = [...cards].sort(() => Math.random() - 0.5);
       setCards(mixedCards);
       setShouldShuffle(false);
     }
   }, [shouldShuffle, cards]);
+
 
   const handleCardClick = (cardId) => {
     if (selectedCards.length < 3) {

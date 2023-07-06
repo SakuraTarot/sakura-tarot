@@ -28,6 +28,13 @@ const style = {
   borderRadius: 5,
 };
 
+const responsiveStyle = {
+  '@media (max-width: 480px)': {
+    width: '90%',
+    maxWidth: 300,
+  },
+};
+
 const CustomButton = styled(Button)`
   background-color: var(--accent-color);
   border: none;
@@ -63,7 +70,7 @@ export default function TransitionsModal({ selectedCards, isDataSaved, setIsData
   const handleClose = () => setOpen(false);
 
   const handleSave = () => {
-    // Perform save logic with the textarea value
+    
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth() + 1;
@@ -81,7 +88,7 @@ export default function TransitionsModal({ selectedCards, isDataSaved, setIsData
     localStorage.setItem(SavedKey, JSON.stringify(savedData));
     setIsDataSaved(true);
 
-    // Close the modal
+    
     setOpen(false);
   };
 
@@ -91,7 +98,7 @@ export default function TransitionsModal({ selectedCards, isDataSaved, setIsData
 
   return (
     <ThemeProvider theme={theme}>
-      <div>
+      <div >
         <CustomButton onClick={handleOpen} disabled={isDataSaved}>Guardar</CustomButton>
         <Modal
           aria-labelledby="transition-modal-title"
@@ -105,7 +112,7 @@ export default function TransitionsModal({ selectedCards, isDataSaved, setIsData
           }}
         >
           <Fade in={open}>
-            <Box sx={style}>
+            <Box sx={{ ...style, ...responsiveStyle }}>
               <Typography id="transition-modal-title" variant="h6" component="h2">
                 Cómo te sientes?
               </Typography>

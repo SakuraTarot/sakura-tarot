@@ -1,5 +1,20 @@
+.main-reading{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.cart-bw{
+    width: 150px;
+    margin: auto;
+    display: flex;
+    margin-bottom: 3%;
+}
+
+
 .savedBox{
-    width: 50%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     background-color: var(--accent-hover-background);
@@ -15,6 +30,29 @@
     font-style: italic;
     font-weight: 300;
 }
+
+
+.comeback{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.back{
+    width: 12px;
+    /* margin: auto; */
+    align-content: center;
+    margin-right:5px;
+}
+
+@media (max-width:450px){
+.comeback{
+    display: none;
+}
+}
+
 @media screen and (max-width:775px) {
 
     .savedBox {

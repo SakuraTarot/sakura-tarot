@@ -1,47 +1,8 @@
-// import React from 'react'
-// import './FavoritesCards.css';
-// import { useState } from 'react';
-
-
-// export default function FavoritesCards() {
-//   const [savedData, setSavedData] = useState([]);
-  
-    
-//   for (let i = 0; i < localStorage.length; i++) {
-//     const key = localStorage.key(i);
-//     if (key.startsWith('Saved_')) {
-//       const data = localStorage.getItem(key);
-//       savedData.push(JSON.parse(data));
-//     }
-//   }
-//   const handleDelete = (index) => {
-//     const keyToDelete = `Saved_${index}`;
-//     localStorage.removeItem(keyToDelete);
-//     savedData.splice(index, 1);
-//     setSavedData([...savedData]);
-//   };
-  
-//       const divArray = [];
-//     for (let i = 0; i < localStorage.length; i++) {
-//         divArray.push(
-//           <div key={i} className='savedBox'>
-//           <div className='date'>{savedData[i].date}</div>
-//           <div className='line'><strong>Pasado:</strong> {savedData[i].selectedCards[0].meaning}</div>
-//           <div className='line'><strong>Presente:</strong> {savedData[i].selectedCards[1].meaning}</div>
-//             <div><strong>Futuro:</strong> {savedData[i].selectedCards[2].meaning}</div>
-//             <div>{savedData[i].textareaValue}</div>
-//             <button onClick={() => handleDelete(i)}>Eliminar</button>
-//       </div>
-//     );
-//     }
-//   return (
-//     <div>
-//         {divArray.reverse()}
-//     </div>
-//   )
-// }
 import React, { useState, useEffect } from 'react';
 import './FavoritesCards.css';
+import { Link } from "react-router-dom";
+import Cart from "../../assets/cartas-favotires.svg";
+import Back from "../../assets/back.svg";
 
 export default function FavoritesCards() {
   const [savedData, setSavedData] = useState([]);
@@ -50,7 +11,7 @@ export default function FavoritesCards() {
     const data = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key.startsWith('Saved_')) {
+      if (key.startsWith("Saved_")) {
         const item = JSON.parse(localStorage.getItem(key));
         data.push(item);
       }
@@ -95,8 +56,8 @@ export default function FavoritesCards() {
   };
 
   const divArray = savedData.map((item, index) => (
-    <div key={index} className='savedBox'>
-      <div className='date'>{item.date}</div>
+    <div key={index} className="savedBox">
+      <div className="date">{item.date}</div>
       {item.isEditing ? (
         <input
           type="text"
@@ -106,10 +67,10 @@ export default function FavoritesCards() {
       ) : (
         <div>{item.textareaValue}</div>
       )}
-      <div className='line'>
+      <div className="line">
         <strong>Pasado:</strong> {item.selectedCards[0].meaning}
       </div>
-      <div className='line'>
+      <div className="line">
         <strong>Presente:</strong> {item.selectedCards[1].meaning}
       </div>
       <div>
@@ -124,5 +85,19 @@ export default function FavoritesCards() {
     </div>
   ));
 
-  return <div>{divArray.reverse()}</div>;
+  return (
+    <div className="main-reading">
+      <img
+        src={Cart}
+        className="cart-bw"
+        alt="Carta que aparece en la parte inferior del navbar"/>
+
+      <div>{divArray.reverse()}</div>
+
+      <Link to="/Main" className="comeback">
+        <img src={Back} className="back" alt="link para volver atras" />
+        Back
+      </Link>
+    </div>
+  );
 }

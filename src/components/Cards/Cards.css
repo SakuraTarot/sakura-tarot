@@ -68,7 +68,8 @@ img.openedCard{
 }
 
 .buttonRestart {
-    margin-left: 1em;
+    margin-left: 0em;
+    margin-top: 10px;
 }
 
 .buttonRestart:hover, .buttonSave:hover {

@@ -21,11 +21,16 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: '#D0851E',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 3,
   textAlign: 'center',
   borderRadius: 5,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center', 
+  '@media (max-width: 775px)': { // Add media query for screen width less than or equal to 600px
+    width: '80%',
+  },
 };
 
 const responsiveStyle = {
@@ -41,6 +46,7 @@ const CustomButton = styled(Button)`
   border-radius: 10px;
   padding: 10px 35px;
   font-size: 1em;
+  font-weight: 600;
   cursor: pointer;
   text-transform: none;
   color: black;
@@ -51,15 +57,21 @@ const CustomButton = styled(Button)`
 `;
 
 const CustomTextarea = styled(TextareaAutosize)`
-  background-color: var(--accent-color);
+  background-color: var(--accent-hover-background);
   width: 100%;
   margin-top: 1rem;
-  border: none;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
   rows: 4;
+  padding: 5px;
+  font-size: 1.2em;
+  color: white;
   &:hover, &:focus{
     outline: none;
-    border: none;
   }
+  &::placeholder {
+    font-size: 1.1em; 
+    color: var(--accent-color);
 `;
 
 export default function TransitionsModal({ selectedCards, isDataSaved, setIsDataSaved }) {
@@ -68,7 +80,10 @@ export default function TransitionsModal({ selectedCards, isDataSaved, setIsData
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  function reset() {
+        setTextareaValue('');
 
+  }
   const handleSave = () => {
     
     const today = new Date();
@@ -87,6 +102,7 @@ export default function TransitionsModal({ selectedCards, isDataSaved, setIsData
     const SavedKey = `Saved_${localStorage.length}`;
     localStorage.setItem(SavedKey, JSON.stringify(savedData));
     setIsDataSaved(true);
+    reset();
 
     
     setOpen(false);
@@ -122,12 +138,14 @@ export default function TransitionsModal({ selectedCards, isDataSaved, setIsData
                 minRows={3}
                 onChange={handleTextareaChange}
               />
-              <CustomButton variant="contained" onClick={handleSave} style={{ marginTop: '1rem' }}>
+              <div style={{ display: 'flex' }}>
+                <CustomButton variant="contained" onClick={handleSave} style={{ marginTop: '1rem' }}>
                 Guardar
               </CustomButton>
               <CustomButton variant="contained" onClick={handleClose} style={{ marginTop: '1rem' }}>
                 Cerrar
               </CustomButton>
+              </div>
             </Box>
           </Fade>
         </Modal>

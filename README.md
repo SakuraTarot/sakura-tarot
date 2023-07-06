@@ -1,4 +1,4 @@
-## Project Name: Sakura-Tarot
+<p align="center"> ## Project Name: Sakura-Tarot
 
 
 # Stellar Journey

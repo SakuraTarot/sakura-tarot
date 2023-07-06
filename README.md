@@ -1,4 +1,4 @@
-# Project Name: Sakura-Tarot
+## Project Name: Sakura-Tarot
 
 
 # Stellar Journey
@@ -30,15 +30,23 @@ To start the proyect, write in the terminal.
 - npm i
 ### To get the API:
 - npm install axios
+### To install the library that we used for the popup:
+- npm install @mui/material @emotion/react @emotion/styled
 ### To see the proyect:
 - npm start
-#### To run the tests:
+### To run the tests:
+- npm install --save-dev jest
 - npm test
 
 ---
 
 ## Mockup
-
+![movil1](https://github.com/SakuraTarot/sakura-tarot/assets/129850727/986a4084-5d51-49fd-99cb-2bba167f90d0) 
+![movil2](https://github.com/SakuraTarot/sakura-tarot/assets/129850727/86f76aa8-39b8-4517-bfbb-c0149ce71273)
+![movil3](https://github.com/SakuraTarot/sakura-tarot/assets/129850727/b0268a51-52a4-493f-b610-bc68a56892b7)
+![movil4](https://github.com/SakuraTarot/sakura-tarot/assets/129850727/de9fef8d-1ef5-4c2e-989b-cc4bf88a906e)
+![movil6](https://github.com/SakuraTarot/sakura-tarot/assets/129850727/d9f74511-e7ce-40de-84a3-97b2af8a5786)
+![movil5](https://github.com/SakuraTarot/sakura-tarot/assets/129850727/416a75c8-32ab-43f7-8630-9a21da32c719)
 
 ---
 
@@ -77,7 +85,7 @@ To start the proyect, write in the terminal.
 
 ---
 
-## Developers
+# Developers
 
        Teresa Villa.
        Genesis Nuñez.

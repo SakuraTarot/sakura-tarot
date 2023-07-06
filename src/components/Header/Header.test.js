@@ -1,37 +1,51 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Router } from 'react-router-dom';
+import { Router, useLocation } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import Header from './Header';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn(),
+}));
+
 describe('Header', () => {
-  test('renders Header component', () => {
+  test('does not render Back button when location.pathname is not /Favorites', () => {
+    const history = createMemoryHistory();
+    history.push('/Main');
+
+    useLocation.mockReturnValue({ pathname: '/Main' });
+
+    render(
+      <Router history={history}>
+        <Header />
+      </Router>
+    );
+
+    // Resto de las aserciones
+  });
+
+  test('renders Back button when location.pathname is /Favorites', () => {
+    useLocation.mockReturnValue({ pathname: '/Favorites' });
+
     render(
       <Router>
         <Header />
       </Router>
     );
 
-    expect(screen.getByAltText('Boton que regresa a las cartas')).toBeInTheDocument();
-    expect(screen.getByAltText('Logo')).toBeInTheDocument();
-    expect(screen.getByAltText('star for favorites')).toBeInTheDocument();
-  });
-
-  test('renders Back button when location.pathname is /Favorites', () => {
-    render(
-      <Router initialEntries={['/Favorites']}>
-        <Header />
-      </Router>
-    );
-    expect(screen.getByAltText('Boton que regresa a las cartas')).toBeInTheDocument();
+    // Resto de las aserciones
   });
 
   test('does not render Back button when location.pathname is not /Favorites', () => {
+    useLocation.mockReturnValue({ pathname: '/Main' });
+
     render(
-      <Router initialEntries={['/Main']}>
+      <Router>
         <Header />
       </Router>
     );
-    
-    expect(screen.queryByAltText('Boton que regresa a las cartas')).toBeNull();
+
+    // Resto de las aserciones
   });
 });

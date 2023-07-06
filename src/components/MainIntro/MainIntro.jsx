@@ -1,5 +1,5 @@
 import React from 'react'
-import Stellar from '../../assets/Stellar Journey.svg';
+import Stellar from '../../assets/Stellar-Journey.svg';
 import Hands from '../../assets/hands-image.svg'
 import Button from '../button/Button';
 import './MainIntro.css'

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import Back from '../../assets/back.svg';
-import Stellar from '../../assets/Stellar Journey.svg';
+import Stellar from '../../assets/Stellar-Journey.svg';
 import Start from '../../assets/favorite.svg';
 
 export default function Header() {

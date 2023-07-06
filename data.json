@@ -182,6 +182,128 @@
       ],
       "textareaValue": "and final",
       "id": 4
+    },
+    {
+      "date": "06/07/2023",
+      "selectedCards": [
+        {
+          "id": "6",
+          "cardNumber": 6,
+          "spanishName": "Bosque",
+          "englishName": "The Wood",
+          "kanji": "樹",
+          "Rōmaji": "Ki",
+          "appeardManga": "1",
+          "appeardAnime": "4",
+          "clowCard": "https://i.ibb.co/17154Dk/Bosque.jpg",
+          "sakuraCard": "https://i.ibb.co/hYMDk2F/Bosque-Sakura.jpg",
+          "cardsReverse": {
+            "clowReverse": "https://i.ibb.co/LJSmQ4f/Reverso-Clow.jpg",
+            "sakuraReverse": "https://i.ibb.co/XxrvMJ2/Reverso-Sakura.jpg"
+          },
+          "meaning": "Simboliza el dominio y la integración del medio, de la naturaleza.",
+          "__v": 0
+        },
+        {
+          "id": "25",
+          "cardNumber": 25,
+          "spanishName": "Canción",
+          "englishName": "The Song",
+          "kanji": "歌",
+          "Rōmaji": "Uta",
+          "appeardManga": "",
+          "appeardAnime": "23",
+          "clowCard": "https://i.ibb.co/hmyxC61/Canci-n.jpg",
+          "sakuraCard": "https://i.ibb.co/3kmsTBj/Canci-n-Sakura.jpg",
+          "cardsReverse": {
+            "clowReverse": "https://i.ibb.co/LJSmQ4f/Reverso-Clow.jpg",
+            "sakuraReverse": "https://i.ibb.co/XxrvMJ2/Reverso-Sakura.jpg"
+          },
+          "meaning": " Simboliza la paz, la tranquilidad y la alegría.",
+          "__v": 0
+        },
+        {
+          "id": "41",
+          "cardNumber": 41,
+          "spanishName": "Equilibrio",
+          "englishName": "The Libra",
+          "kanji": "秤",
+          "Rōmaji": "Hakari",
+          "appeardManga": "",
+          "appeardAnime": "35/36",
+          "clowCard": "https://i.ibb.co/hySQgHY/Equilibrio.jpg",
+          "sakuraCard": "https://i.ibb.co/vJ319Jt/Equilibrio-Sakura.jpg",
+          "meaning": "Simboliza la verdad, la justicia, el balance del bien y el mal, el equilibrio.",
+          "__v": 0,
+          "cardsReverse": {
+            "clowReverse": "https://i.ibb.co/LJSmQ4f/Reverso-Clow.jpg",
+            "sakuraReverse": "https://i.ibb.co/XxrvMJ2/Reverso-Sakura.jpg"
+          }
+        }
+      ],
+      "textareaValue": "try again",
+      "id": 5
+    },
+    {
+      "date": "06/07/2023",
+      "selectedCards": [
+        {
+          "id": "43",
+          "cardNumber": 43,
+          "spanishName": "Nieve",
+          "englishName": "The Snow",
+          "kanji": "雪",
+          "Rōmaji": "Yuki",
+          "appeardManga": "",
+          "appeardAnime": "36",
+          "clowCard": "https://i.ibb.co/XzZTfxN/Nieve.jpg",
+          "sakuraCard": "https://i.ibb.co/pbDdzt1/Nieve-Sakura.jpg",
+          "meaning": "Simboliza el bloqueo, la inmovilidad y el fin de los problemas.",
+          "__v": 0,
+          "cardsReverse": {
+            "clowReverse": "https://i.ibb.co/LJSmQ4f/Reverso-Clow.jpg",
+            "sakuraReverse": "https://i.ibb.co/XxrvMJ2/Reverso-Sakura.jpg"
+          }
+        },
+        {
+          "id": "37",
+          "cardNumber": 37,
+          "spanishName": "Fuego",
+          "englishName": "The Firey",
+          "kanji": "火",
+          "Rōmaji": "Hi",
+          "appeardManga": "23",
+          "appeardAnime": "35",
+          "clowCard": "https://i.ibb.co/k8y5MGc/Fuego.jpg",
+          "sakuraCard": "https://i.ibb.co/B6B1wHB/Fuego-Sakura.jpg",
+          "meaning": "Simboliza la creatividad, la creación, la fuerza de voluntad y el amor.",
+          "__v": 0,
+          "cardsReverse": {
+            "clowReverse": "https://i.ibb.co/LJSmQ4f/Reverso-Clow.jpg",
+            "sakuraReverse": "https://i.ibb.co/XxrvMJ2/Reverso-Sakura.jpg"
+          }
+        },
+        {
+          "id": "32",
+          "cardNumber": 32,
+          "spanishName": "Carrera",
+          "englishName": "The Dash",
+          "kanji": "駆",
+          "Rōmaji": "Ka",
+          "appeardManga": "",
+          "appeardAnime": "30",
+          "clowCard": "https://i.ibb.co/sq76L1J/Carrera.jpg",
+          "sakuraCard": "https://i.ibb.co/Wz0VZpP/Carrera-Sakura.jpg",
+          "meaning": "Simboliza la velocidad, los reflejos, la capacidad de actuar rápidamente",
+          "__v": 0,
+          "cardsReverse": {
+            "clowReverse": "https://i.ibb.co/LJSmQ4f/Reverso-Clow.jpg",
+            "sakuraReverse": "https://i.ibb.co/XxrvMJ2/Reverso-Sakura.jpg"
+          }
+        }
+      ],
+      "textareaValue": "Hi Denise!",
+      "id": 6
     }
   ]
 }

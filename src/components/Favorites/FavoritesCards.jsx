@@ -3,6 +3,7 @@ import './FavoritesCards.css';
 import { Link } from "react-router-dom";
 import Cart from "../../assets/cartas-favotires.svg";
 import Back from "../../assets/back.svg";
+import DeleteModal from './PopUpDelete';
 
 export default function FavoritesCards() {
   const [savedData, setSavedData] = useState([]);
@@ -56,33 +57,37 @@ export default function FavoritesCards() {
   };
 
   const divArray = savedData.map((item, index) => (
-    <div key={index} className="savedBox">
-      <div className="date">{item.date}</div>
-      {item.isEditing ? (
-        <input
-          type="text"
-          value={item.textareaValue}
-          onChange={(e) => handleCommentChange(e, index)}
-        />
-      ) : (
-        <div>{item.textareaValue}</div>
-      )}
+    <div key={index} className='savedBox'>
+      <div className='date'>{item.date}<DeleteModal onDelete={() => handleDelete(index)} />
+</div>
       <div className="line">
         <strong>Pasado:</strong> {item.selectedCards[0].meaning}
       </div>
       <div className="line">
         <strong>Presente:</strong> {item.selectedCards[1].meaning}
       </div>
-      <div>
+      <div className='line'>
         <strong>Futuro:</strong> {item.selectedCards[2].meaning}
       </div>
-      {item.isEditing ? (
-        <button onClick={() => handleSave(index)}>Guardar</button>
+      <div>
+        <strong>Comentario:</strong>
+        {item.isEditing ? (
+          <textarea
+          className='textArea'
+          type="text"
+          value={item.textareaValue}
+          onChange={(e) => handleCommentChange(e, index)}
+        ></textarea>
       ) : (
-        <button onClick={() => handleEdit(index)}>Editar</button>
+        <div>{item.textareaValue}</div>
       )}
-      <button onClick={() => handleDelete(index)}>Eliminar</button>
-    </div>
+      {item.isEditing ? (
+        <button onClick={() => handleSave(index)} className='buttonEdit'>Guardar</button>
+      ) : (
+        <button onClick={() => handleEdit(index)} className='buttonEdit'>Editar</button>
+      )}
+        </div>
+      </div>
   ));
 
   return (

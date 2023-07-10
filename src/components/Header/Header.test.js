@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Router, useLocation } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 import Header from './Header';
 
 jest.mock('react-router-dom', () => ({
@@ -11,15 +10,12 @@ jest.mock('react-router-dom', () => ({
 
 describe('Header', () => {
   test('does not render Back button when location.pathname is not /Favorites', () => {
-    const history = createMemoryHistory();
-    history.push('/Main');
-
     useLocation.mockReturnValue({ pathname: '/Main' });
 
     render(
-      <Router history={history}>
+      <MemoryRouter>
         <Header />
-      </Router>
+      </MemoryRouter>
     );
 
     // Resto de las aserciones
@@ -29,9 +25,9 @@ describe('Header', () => {
     useLocation.mockReturnValue({ pathname: '/Favorites' });
 
     render(
-      <Router>
+      <MemoryRouter>
         <Header />
-      </Router>
+      </MemoryRouter>
     );
 
     // Resto de las aserciones
@@ -41,9 +37,9 @@ describe('Header', () => {
     useLocation.mockReturnValue({ pathname: '/Main' });
 
     render(
-      <Router>
+      <MemoryRouter>
         <Header />
-      </Router>
+      </MemoryRouter>
     );
 
     // Resto de las aserciones

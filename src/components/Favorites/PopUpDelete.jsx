@@ -29,16 +29,16 @@ const style = {
 const CustomButton = styled(Button)`
   background-color: var(--accent-color);
   border: none;
-  border-radius: 10px;
-  padding: 5px 35px;
+  border-radius: 15px;
+  padding: 5px 15px;
   font-weight: 600;
   cursor: pointer;
   text-transform: none;
   color: black;
   margin: 0 1em;
   &:hover {
-    background-color: var(--accent-hover-background);
-  }
+    background-color: rgb(115, 12, 12);
+    color: #FDB044;  
 `;
 const CustomButtonMain = styled(Button)`
   background-color: var(--accent-color);
@@ -52,8 +52,8 @@ const CustomButtonMain = styled(Button)`
   color: black;
   margin: 0;
   &:hover {
-    background-color: var(--accent-hover-background);
-  }
+    background-color: rgb(115, 12, 12);
+    color: #FDB044;  
 `;
 export default function DeleteModal({ onDelete }) {
   const [open, setOpen] = React.useState(false);
@@ -69,7 +69,7 @@ export default function DeleteModal({ onDelete }) {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <CustomButtonMain variant="contained" onClick={handleOpen}>X</CustomButtonMain>
+        <CustomButtonMain onClick={handleOpen}>X</CustomButtonMain>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -86,10 +86,10 @@ export default function DeleteModal({ onDelete }) {
               <Typography id="transition-modal-title" variant="h6" component="h2">
                 Estas seguro que quieres borrar las cartas guardadas? 
               </Typography>
-              <CustomButton variant="contained" onClick={handleDelete} style={{ marginTop: '2rem' }}>
+              <CustomButton onClick={handleDelete} style={{ marginTop: '2rem' }}>
                 Borrar
               </CustomButton>
-              <CustomButton variant="contained" onClick={handleClose} style={{ marginTop: '2rem' }}>
+              <CustomButton onClick={handleClose} style={{ marginTop: '2rem' }}>
                 Cerrar
               </CustomButton>
             </Box>

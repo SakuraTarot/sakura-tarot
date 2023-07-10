@@ -63,13 +63,14 @@
     background-color: var(--accent-color);
     font-size: 1em;
     padding: 5px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     margin-top: 1em;
 }
 
 .buttonEdit:hover {
-    background-color: var(--accent-hover-background);
+    background-color: rgb(115, 12, 12);
+    color: #FDB044;
 }
 .comeback{
     display: flex;
@@ -77,6 +78,7 @@
     text-decoration: none;
     color: white;
     font-size: 16px;
+    margin-bottom: 2em;
 }
 
 .back{

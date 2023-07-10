@@ -61,8 +61,8 @@ img.openedCard{
 .buttonSave, .buttonRestart{
     background-color: var(--accent-color);
     border: none;
-    border-radius: 10px;
-    padding: 15px 35px;
+    border-radius: 15px;
+    padding: 10px 15px;
     font-size: 1em;
     cursor: pointer;
 }
@@ -76,8 +76,9 @@ img.openedCard{
 }
 
 .buttonRestart:hover, .buttonSave:hover {
-    background-color: var(--accent-hover-background);}
-
+    background-color: rgb(115, 12, 12);
+    color: #FDB044;}
+    
 .buttonsBox{
     display: none;
     text-align: center;

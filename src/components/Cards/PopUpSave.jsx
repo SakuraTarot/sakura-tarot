@@ -44,8 +44,8 @@ const responsiveStyle = {
 const CustomButton = styled(Button)`
   background-color: var(--accent-color);
   border: none;
-  border-radius: 10px;
-  padding: 10px 35px;
+  border-radius: 15px;
+  padding: 10px 15px;
   font-size: 1em;
   font-weight: 600;
   cursor: pointer;
@@ -53,8 +53,8 @@ const CustomButton = styled(Button)`
   color: black;
   margin: 0 1em;
   &:hover {
-    background-color: var(--accent-hover-background);
-  }
+  background-color: rgb(115, 12, 12);
+  color: #FDB044;  
 `;
 
 const CustomTextarea = styled(TextareaAutosize)`
@@ -148,10 +148,10 @@ export default function TransitionsModal({ selectedCards, isDataSaved, setIsData
                 onChange={handleTextareaChange}
               />
               <div style={{ display: 'flex' }}>
-                <CustomButton variant="contained" onClick={handleSave} style={{ marginTop: '1rem' }}>
+                <CustomButton onClick={handleSave} style={{ marginTop: '1rem' }}>
                 Guardar
               </CustomButton>
-              <CustomButton variant="contained" onClick={handleClose} style={{ marginTop: '1rem' }}>
+              <CustomButton onClick={handleClose} style={{ marginTop: '1rem' }}>
                 Cerrar
               </CustomButton>
               </div>

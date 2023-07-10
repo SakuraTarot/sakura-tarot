@@ -32,6 +32,10 @@ To start the proyect, write in the terminal.
 - npm install axios
 ### To install the library that we used for the popup:
 - npm install @mui/material @emotion/react @emotion/styled
+### To install json-server:
+- npm install json-server --save-dev
+### To run at the same time react-app and json-server in localhost:
+- npm install concurrently --save-dev
 ### To see the proyect:
 - npm start
 ### To run the tests:
@@ -68,9 +72,10 @@ To start the proyect, write in the terminal.
 
 ## Technologies
  <div>
- <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg" alt="react logo" margin="0" width="80" height="40"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript logo" width="40" height="40"/> 
- <div>      
+ <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg" alt="react logo" margin="0" width="" height="40"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript logo" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
+ <div> 
 
 ---
 
